@@ -1,0 +1,127 @@
+.form-container {
+  display: flex;
+  gap: 40px;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 14px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+  align-items: flex-start;
+  flex-wrap: wrap;
+  font-family: 'Poppins', sans-serif;
+}
+
+.formulario {
+  flex: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.formulario .form-titulo {
+  width: 100%;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: #1e3a8a;
+}
+
+.formulario .form-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 220px;
+  min-width: 200px;
+}
+
+.formulario label {
+  font-weight: 600;
+  color: #111827;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.formulario input,
+.formulario select {
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.formulario button {
+  background-color: #2563eb;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.formulario button:hover {
+  background-color: #1e40af;
+}
+
+.dron-detalles {
+  flex: 1;
+  background-color: #f9fafb;
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.04);
+}
+
+.dron-detalles h3 {
+  margin-bottom: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #1f2937;
+}
+
+.dron-detalles p {
+  margin: 8px 0;
+  font-size: 16px;
+  color: #000000;
+}
+
+/* Colores personalizados para íconos */
+.icon {
+  font-size: 16px;
+}
+
+.icon-chip {
+  color: #7c3aed; /* morado */
+}
+
+.icon-medicamento {
+  color: #059669; /* verde esmeralda */
+}
+
+.icon-peso {
+  color: #f97316; /* naranja */
+}
+
+.icon-ubicacion {
+  color: #dc2626; /* rojo */
+}
+
+.icon-prioridad {
+  color: #facc15; /* amarillo */
+}
+
+.icon-fecha {
+  color: #2563eb; /* azul */
+}
+
+@media (max-width: 768px) {
+  .form-container {
+    flex-direction: column;
+  }
+
+  .formulario,
+  .dron-detalles {
+    width: 100%;
+  }
+}

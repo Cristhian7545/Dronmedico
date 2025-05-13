@@ -1,23 +1,29 @@
-import RegistroDron from './Vista/RegistroDron';
-import DronStatusList from './Vista/DronStatusList';
+// App.js
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Layout from './components/Layout';
+
+import Inicio from './Vista/Inicio';
 import AlertaDronList from './Vista/AlertaDronList';
+import DronStatusList from './Vista/DronStatusList';
+import RegistroDron from './Vista/RegistroDron';
+import PaginaExtra from './Vista/PaginaExtra';
+import PaginaExtra2 from './Vista/PaginaExtra2';
 
 function App() {
   return (
-    <>
-      <div className="min-h-screen bg-gray-50 p-8">
-        <h1 className="text-3xl font-bold mb-6 text-center">
-          Envío de Medicamentos por Dron
-        </h1>
-        <RegistroDron />
-      </div>
-      <div className="bg-slate-100 px-6 py-8">
-        <DronStatusList />
-      </div>
-      <div>
-        <AlertaDronList/>
-      </div>
-    </>
+    <Router>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Inicio />} />
+          <Route path="/alertas" element={<AlertaDronList />} />
+          <Route path="/estado" element={<DronStatusList />} />
+          <Route path="/registro" element={<RegistroDron />} />
+          <Route path="/extra" element={<PaginaExtra />} />
+          <Route path="/extra2" element={<PaginaExtra2 />} />
+        </Routes>
+      </Layout>
+    </Router>
   );
 }
 

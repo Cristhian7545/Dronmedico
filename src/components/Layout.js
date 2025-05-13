@@ -1,22 +1,37 @@
 // src/components/Layout.js
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../components/Layout.css'; // ✅ ruta corregida
+import '../components/Layout.css';
 
 const Layout = ({ children }) => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
   return (
     <div className="layout">
       <nav className="navbar">
         <div className="logo">
           🌿 DronMédico
         </div>
-        <ul>
-          <li><Link to="/">Inicio</Link></li>
-          <li><Link to="/alertas">Alertas</Link></li>
-          <li><Link to="/estado">Estado del Dron</Link></li>
-          <li><Link to="/registro">Registro</Link></li>
-          <li><Link to="/extra">Página Extra</Link></li>
-          <li><Link to="/extra2">Página Extra 2</Link></li>
+
+        <button className="menu-toggle" onClick={toggleMenu}>
+          {menuOpen ? '✖' : '☰'}
+        </button>
+
+        <ul className={`nav-links ${menuOpen ? 'active' : ''}`}>
+          <li><Link to="/" onClick={closeMenu}>Inicio</Link></li>
+          <li><Link to="/alertas" onClick={closeMenu}>Alertas</Link></li>
+          <li><Link to="/estado" onClick={closeMenu}>Estado del Dron</Link></li>
+          <li><Link to="/registro" onClick={closeMenu}>Registro</Link></li>
+          <li><Link to="/extra" onClick={closeMenu}>Página Extra</Link></li>
+          <li><Link to="/extra2" onClick={closeMenu}>Página Extra 2</Link></li>
         </ul>
       </nav>
 
@@ -24,7 +39,7 @@ const Layout = ({ children }) => {
         {children}
       </main>
 
-            <footer className="footer">
+      <footer className="footer">
         <div className="footer-content">
           <div className="footer-brand">
             <h3>DronMédico</h3>
@@ -47,7 +62,6 @@ const Layout = ({ children }) => {
           <p>© 2025 DronMédico. Todos los derechos reservados.</p>
         </div>
       </footer>
-
     </div>
   );
 };

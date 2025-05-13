@@ -7,7 +7,7 @@ import Inicio from './Vista/Inicio';
 import AlertaDronList from './Vista/AlertaDronList';
 import DronStatusList from './Vista/DronStatusList';
 import RegistroDron from './Vista/RegistroDron';
-import PaginaExtra from './Vista/PaginaExtra';
+import DetalleDron from './Vista/DetalleDron';
 import PaginaExtra2 from './Vista/PaginaExtra2';
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
           <Route path="/alertas" element={<AlertaDronList />} />
           <Route path="/estado" element={<DronStatusList />} />
           <Route path="/registro" element={<RegistroDron />} />
-          <Route path="/extra" element={<PaginaExtra />} />
+          <Route path="/extra" element={<DetalleDron />} />
           <Route path="/extra2" element={<PaginaExtra2 />} />
         </Routes>
       </Layout>

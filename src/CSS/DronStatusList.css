@@ -1,98 +1,86 @@
-/* Estilos generales */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
 .status-container {
-  padding: 24px;
+  padding: 40px 20px;
   background-color: #f9fafb;
   font-family: 'Poppins', sans-serif;
 }
 
 .titulo {
   text-align: center;
-  font-size: 26px;
+  font-size: 28px;
   font-weight: 600;
-  margin-bottom: 24px;
+  margin-bottom: 30px;
   color: #1f2937;
 }
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
-.card {
+/* TARJETA */
+.drone-card {
   background-color: #ffffff;
   border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
   padding: 20px;
-  position: relative;
   text-align: center;
   transition: transform 0.3s ease;
+  width: 100%;
+  overflow: visible;
+  display: block;
 }
 
-.card:hover {
+/* TARJETA hover */
+.drone-card:hover {
   transform: translateY(-4px);
 }
 
-.card h3 {
-  margin: 12px 0 6px;
-  font-size: 20px;
-  font-weight: 600;
-  color: #1e3a8a;
-}
-
-.card p {
-  margin: 6px 0;
-  font-size: 15px;
-  color: #374151;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
-
-/* Imagen más grande */
+/* IMAGEN del dron */
 .dron-img {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  max-height: 100px;
   object-fit: contain;
-  margin: 0 auto 12px;
+  margin-bottom: 12px;
   border-radius: 8px;
-  border: 2px solid #e5e7eb;
-  background-color: #f1f5f9;
+  border: 1px solid #e5e7eb;
+  background-color: #f3f4f6;
 }
 
-/* Iconos con color */
+/* ICONOS */
 .icon {
-  font-size: 18px;
+  font-size: 16px;
 }
 
-.icon.color-ubicacion {
+.color-ubicacion {
   color: #ef4444;
 }
 
-.icon.color-clima {
+.color-clima {
   color: #10b981;
 }
 
-.icon.color-tiempo {
+.color-tiempo {
   color: #f59e0b;
 }
 
-.icon.color-bateria {
+.color-bateria {
   color: #3b82f6;
 }
 
-/* Botón */
+/* BOTÓN */
 .ver-mapa {
-  margin-top: 14px;
+  margin-top: 12px;
   background-color: #2563eb;
   color: white;
   padding: 8px 16px;
-  font-weight: bold;
   border: none;
   border-radius: 8px;
+  font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -101,7 +89,7 @@
   background-color: #1d4ed8;
 }
 
-/* Modal */
+/* MODAL */
 .mapa-modal {
   position: fixed;
   top: 0;
@@ -134,4 +122,19 @@
   padding: 6px 12px;
   border-radius: 6px;
   cursor: pointer;
+}
+
+/* RESPONSIVE ajustes */
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+
+  .drone-card {
+    padding: 16px;
+  }
+
+  .dron-img {
+    width: 80px;
+  }
 }

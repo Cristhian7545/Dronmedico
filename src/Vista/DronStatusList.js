@@ -37,7 +37,7 @@ const DronStatusList = () => {
       <h2 className="titulo">Drones en Trayecto - Tiempo Real</h2>
       <div className="grid-container">
         {entregas.map((entrega) => (
-          <div key={entrega.id} className="card">
+          <div key={entrega.id} className="drone-card">
             <img
               src={DronRegistrar}
               alt="dron"

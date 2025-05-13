@@ -1,5 +1,7 @@
+// src/components/RegistroDron.js
 import React, { useState, useEffect } from 'react';
 import '../CSS/RegistroDron.css';
+import { useNavigate } from 'react-router-dom';
 import {
   FaMapMarkerAlt,
   FaWeightHanging,
@@ -25,11 +27,15 @@ const departamentos = [
 const tiposMedicamento = ['Vacunas', 'Antibióticos', 'Insulina', 'Analgésicos', 'Otros'];
 
 const RegistroDron = () => {
+  const navigate = useNavigate();
   const [selectedDron, setSelectedDron] = useState(drones[0]);
   const [fecha, setFecha] = useState('');
   const [tiempoLlegada, setTiempoLlegada] = useState('');
   const [departamento, setDepartamento] = useState('');
   const [lugar, setLugar] = useState('');
+  const [tipoMedicamento, setTipoMedicamento] = useState('');
+  const [peso, setPeso] = useState('');
+  const [prioridad, setPrioridad] = useState('Normal');
 
   useEffect(() => {
     if (fecha && selectedDron) {
@@ -40,19 +46,34 @@ const RegistroDron = () => {
     }
   }, [fecha, selectedDron]);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const vuelo = {
+      dron: selectedDron,
+      tipoMedicamento,
+      peso,
+      fecha,
+      lugar,
+      departamento,
+      prioridad,
+      tiempoLlegada,
+    };
+    localStorage.setItem('vueloProgramado', JSON.stringify(vuelo));
+    alert('🚀 Envío programado con éxito');
+    navigate('/detalle-vuelo');
+  };
+
   return (
     <div className="form-container">
-      <form className="formulario">
+      <form className="formulario" onSubmit={handleSubmit}>
         <h2 className="form-titulo">📦 Programar Envío de Medicamento</h2>
 
         <div className="form-group">
           <label><FaMicrochip className="icon icon-chip" /> Seleccionar Dron</label>
-          <select
-            onChange={(e) => {
-              const dron = drones.find(d => d.nombre === e.target.value);
-              setSelectedDron(dron);
-            }}
-          >
+          <select onChange={(e) => {
+            const dron = drones.find(d => d.nombre === e.target.value);
+            setSelectedDron(dron);
+          }}>
             {drones.map((dron) => (
               <option key={dron.id} value={dron.nombre}>
                 {dron.nombre} {dron.disponible ? '(Disponible)' : '(No disponible)'}
@@ -63,7 +84,7 @@ const RegistroDron = () => {
 
         <div className="form-group">
           <label><FaSyringe className="icon icon-medicamento" /> Tipo de Medicamento</label>
-          <select>
+          <select value={tipoMedicamento} onChange={(e) => setTipoMedicamento(e.target.value)}>
             <option>Seleccionar</option>
             {tiposMedicamento.map((tipo) => (
               <option key={tipo}>{tipo}</option>
@@ -73,7 +94,7 @@ const RegistroDron = () => {
 
         <div className="form-group">
           <label><FaWeightHanging className="icon icon-peso" /> Peso del Paquete (kg)</label>
-          <input type="number" min="0" max="1.5" step="0.1" />
+          <input type="number" min="0" max="1.5" step="0.1" value={peso} onChange={(e) => setPeso(e.target.value)} />
         </div>
 
         <div className="form-group">
@@ -98,7 +119,7 @@ const RegistroDron = () => {
 
         <div className="form-group">
           <label><FaExclamationTriangle className="icon icon-prioridad" /> Prioridad</label>
-          <select>
+          <select value={prioridad} onChange={(e) => setPrioridad(e.target.value)}>
             <option>Normal</option>
             <option>Urgente</option>
             <option>Crítica</option>
@@ -107,7 +128,7 @@ const RegistroDron = () => {
 
         <div className="form-group">
           <label><FaCalendarAlt className="icon icon-fecha" /> Fecha de Envío</label>
-          <input type="datetime-local" onChange={(e) => setFecha(e.target.value)} />
+          <input type="datetime-local" value={fecha} onChange={(e) => setFecha(e.target.value)} />
         </div>
 
         <div className="form-group" style={{ alignSelf: 'end' }}>

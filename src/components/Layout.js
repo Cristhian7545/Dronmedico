@@ -30,8 +30,8 @@ const Layout = ({ children }) => {
           <li><Link to="/alertas" onClick={closeMenu}>Alertas</Link></li>
           <li><Link to="/estado" onClick={closeMenu}>Estado del Dron</Link></li>
           <li><Link to="/registro" onClick={closeMenu}>Registro</Link></li>
-          <li><Link to="/extra" onClick={closeMenu}>Página Extra</Link></li>
-          <li><Link to="/extra2" onClick={closeMenu}>Página Extra 2</Link></li>
+          <li><Link to="/extra" onClick={closeMenu}>Detalles de Vuelo</Link></li>
+          <li><Link to="/extra2" onClick={closeMenu}>Perfil</Link></li>
         </ul>
       </nav>
 

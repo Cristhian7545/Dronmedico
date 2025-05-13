@@ -1,0 +1,32 @@
+/* src/CSS/DetalleVuelo.css */
+.detalle-container {
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 24px;
+  background-color: #f1f5f9;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  font-family: 'Poppins', sans-serif;
+}
+
+.detalle-container h2 {
+  font-size: 26px;
+  color: #1e3a8a;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.detalle-container ul {
+  list-style: none;
+  padding: 0;
+}
+
+.detalle-container li {
+  font-size: 18px;
+  margin-bottom: 12px;
+  color: #111827;
+  background: #fff;
+  padding: 12px;
+  border-radius: 8px;
+  border-left: 6px solid #2563eb;
+}
